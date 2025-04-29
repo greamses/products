@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shop for high-quality men's shirts with various styles and colors">
+  <title>Men's Shirts</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="later.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body>
+  <header class="main-header">
+    <h1>
+      MENYZ
+    </h1>
+    <div class="">
+      <div class="search-filter-container">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="search-input" placeholder="Search shirts..." aria-label="Search shirts">
+        </div>
+        <div class="custom-select">
+          <div class="select-selected">
+            <span>All Categories</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="select-items">
+            <div data-value="all">All Categories</div>
+            <div data-value="casual">Casual</div>
+            <div data-value="formal">Formal</div>
+            <div data-value="sports">Sports</div>
+            <div data-value="streetwear">Streetwear</div>
+            <div data-value="vacation">Vacation</div>
+            <div data-value="business">Business</div>
+          </div>
+          <select id="filter-select" class="hidden-select" aria-label="Filter by category">
+            <option value="all">All Categories</option>
+            <option value="casual">Casual</option>
+            <option value="formal">Formal</option>
+            <option value="sports">Sports</option>
+            <option value="streetwear">Streetwear</option>
+            <option value="vacation">Vacation</option>
+            <option value="business">Business</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    
+    <div class="cart-icon-container" aria-label="Shopping cart">
+      <i class="fas fa-shopping-cart" id="cart-icon" aria-hidden="true"></i>
+      <span class="cart-count" aria-live="polite">0</span>
+    </div>
+  </header>
+  
+  <main class="main-content">
+    <section id="shirt-container" class="shirt-container" aria-label="Product listings"></section>
+  </main>
+  
+  <!-- Cart Sidebar -->
+  <aside id="cart-sidebar" class="cart-sidebar" aria-label="Shopping cart sidebar" aria-hidden="true">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button id="close-cart" class="close-cart" aria-label="Close cart">&times;</button>
+    </div>
+    <div id="cart-items" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <h3>Total: <span id="cart-total-price">₦0.00</span></h3>
+      </div>
+      <button id="checkout-btn" class="button">Checkout</button>
+    </div>
+  </aside>
+  
+  <!-- Product Modal -->
+  <div id="product-modal" class="product-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-product-name">
+    <div class="modal-content">
+      <button class="close-modal" aria-label="Close modal">&times;</button>
+      <div class="modal-body">
+        <div class="modal-images">
+          <img id="modal-main-image" src="" alt="" class="product-image">
+          <div class="thumbnail-container" id="thumbnail-container"></div>
+        </div>
+        <div class="modal-details">
+          <h2 id="modal-product-name" class="product-title"></h2>
+          <p class="modal-price" id="modal-price"></p>
+          <p class="modal-description" id="modal-description"></p>
+          
+          <fieldset class="size-selector">
+            <legend>Size:</legend>
+            <div class="size-options" id="size-options" role="group"></div>
+          </fieldset>
+          
+          <fieldset class="color-selector">
+            <legend>Color:</legend>
+            <div class="color-options" id="color-options" role="group"></div>
+          </fieldset>
+          
+          <div class="quantity-selector">
+            <label for="quantity-control">Quantity:</label>
+            <div class="quantity-controls" id="quantity-control">
+              <button class="quantity-btn minus" aria-label="Decrease quantity">-</button>
+              <span class="quantity">1</span>
+              <button class="quantity-btn plus" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+          
+          <button class="button add-to-cart-modal">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Checkout Modal -->
+  <div id="checkout-modal" class="checkout-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="checkout-title">
+    <div class="checkout-content">
+      <button id="close-checkout" class="close-checkout" aria-label="Close checkout">&times;</button>
+      <h2 id="checkout-title">Complete Order</h2>
+      <form id="checkout-form">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="address">Shipping Address</label>
+          <textarea id="address" name="address" rows="3" required></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label>Payment Method</label>
+          <div class="custom-select payment-select">
+            <div class="select-selected">
+              <span>Select payment</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="select-items">
+              <div data-value="card">Credit/Debit Card</div>
+              <div data-value="paypal">PayPal</div>
+              <div data-value="bank">Bank Transfer</div>
+            </div>
+            <select id="payment" name="payment" required class="hidden-select">
+              <option value="">Select payment</option>
+              <option value="card">Credit/Debit Card</option>
+              <option value="paypal">PayPal</option>
+              <option value="bank">Bank Transfer</option>
+            </select>
+          </div>
+        </div>
+        <div class="order-summary">
+          <h3>Order Summary</h3>
+          <div id="checkout-items"></div>
+          <div class="checkout-total">
+            <span>Total:</span>
+            <span id="checkout-total">₦0.00</span>
+          </div>
+        </div>
+        <button type="submit" class="button submit-order">Place Order</button>
+      </form>
+    </div>
+  </div>
+  
+  <div id="modal-overlay" class="modal-overlay"></div>
+  
+  <div id="custom-alert" class="custom-alert">
+    <div class="alert-content">
+      <i class="fas fa-check-circle alert-icon"></i>
+      <p id="alert-message"></p>
+      <button class="alert-close">&times;</button>
+    </div>
+  </div>
+  
+  <script src="script.js" type="module"></script>
+</body>
+
+</html>

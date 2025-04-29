@@ -1,0 +1,239 @@
+   /* ============== */
+   /* Search & Filter */
+   /* ============== */
+   
+   .search-filter-container {
+     display: flex;
+     align-items: center;
+     gap: 15px;
+     margin-right: auto;
+     margin-left: 30px;
+   }
+   
+   .search-box {
+     position: relative;
+     display: flex;
+     align-items: center;
+   }
+   
+   .search-box i {
+     position: absolute;
+     left: 12px;
+     color: var(--text-color);
+     opacity: 0.7;
+   }
+   
+   #search-input {
+     padding: 10px 15px 10px 40px;
+     border-radius: 25px;
+     border: 1px solid var(--secondary-color);
+     background-color: var(--accent-color);
+     width: 200px;
+     transition: all 0.3s;
+   }
+   
+   #search-input:focus {
+     outline: none;
+     box-shadow: 0 0 0 2px var(--button-color);
+     width: 250px;
+   }
+   
+   #filter-select {
+     padding: 10px 15px;
+     border-radius: 25px;
+     border: 1px solid var(--secondary-color);
+     background-color: var(--accent-color);
+     color: var(--text-color);
+     cursor: pointer;
+     transition: all 0.3s;
+   }
+   
+   #filter-select:focus {
+     outline: none;
+     box-shadow: 0 0 0 2px var(--button-color);
+   }
+   
+   /* ============== */
+   /* Checkout Modal */
+   /* ============== */
+   
+   .checkout-modal {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     z-index: 2500;
+     opacity: 0;
+     visibility: hidden;
+     transition: all 0.3s ease;
+   }
+   
+   .checkout-modal.active {
+     opacity: 1;
+     visibility: visible;
+   }
+   
+   .checkout-content {
+     background-color: var(--accent-color);
+     border-radius: 15px;
+     width: 90%;
+     max-width: 600px;
+     max-height: 90vh;
+     overflow-y: auto;
+     position: relative;
+     padding: 30px;
+     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+   }
+   
+   .close-checkout {
+     position: absolute;
+     top: 20px;
+     right: 20px;
+     font-size: 2rem;
+     width: 50px;
+     height: 50px;
+     border-radius: 50%;
+     cursor: pointer;
+     color: var(--text-color);
+     transition: color 0.2s;
+   }
+   
+   .close-checkout:hover {
+     color: var(--primary-color);
+   }
+   
+   #checkout-form {
+     display: flex;
+     flex-direction: column;
+     gap: 20px;
+   }
+   
+   .form-group {
+     display: flex;
+     flex-direction: column;
+     gap: 8px;
+   }
+   
+   .form-group label {
+     font-weight: bold;
+     color: var(--text-color);
+   }
+   
+   .form-group input,
+   .form-group select,
+   .form-group textarea {
+     padding: 12px 15px;
+     border-radius: 8px;
+     border: 1px solid var(--secondary-color);
+     background-color: var(--accent-color);
+     font-family: 'Montserrat', sans-serif;
+     transition: all 0.3s;
+   }
+   
+   .form-group input:focus,
+   .form-group select:focus,
+   .form-group textarea:focus {
+     outline: none;
+     box-shadow: 0 0 0 2px var(--button-color);
+   }
+   
+   .order-summary {
+     margin-top: 20px;
+     padding: 20px;
+     background-color: rgba(221, 190, 169, 0.1);
+     border-radius: 10px;
+   }
+   
+   #checkout-items {
+     max-height: 200px;
+     overflow-y: auto;
+     margin: 15px 0;
+     padding-right: 10px;
+   }
+   
+   .checkout-item {
+     display: flex;
+     justify-content: space-between;
+     padding: 10px 0;
+     border-bottom: 1px dashed var(--secondary-color);
+   }
+   
+   .checkout-total {
+     display: flex;
+     justify-content: space-between;
+     font-weight: bold;
+     font-size: 1.2rem;
+     padding-top: 15px;
+   }
+   
+   .submit-order {
+     width: 100%;
+     padding: 15px;
+     font-size: 1.1rem;
+     margin-top: 10px;
+   }
+   
+   /* ============== */
+   /* Header Adjustments */
+   /* ============== */
+   
+   header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 60px 25px 20px 25px;
+   }
+   
+   /* ============== */
+   /* Responsive Adjustments */
+   /* ============== */
+   
+   @media (max-width: 768px) {
+     .search-filter-container {
+       flex-direction: column;
+       align-items: flex-start;
+       gap: 10px;
+       margin-left: 15px;
+     }
+     
+     #search-input {
+       width: 180px;
+     }
+     
+     #search-input:focus {
+       width: 200px;
+     }
+     
+     .checkout-content {
+       width: 95%;
+       padding: 20px;
+     }
+   }
+   
+   @media (max-width: 480px) {
+     header {
+       flex-direction: column;
+       align-items: flex-start;
+       gap: 15px;
+       padding: 20px 15px;
+     }
+     
+     .search-filter-container {
+       width: 100%;
+       margin: 10px 0;
+     }
+     
+     #search-input {
+       width: 100%;
+     }
+     
+     .cart-icon-container {
+       position: absolute;
+       right: 20px;
+       top: 20px;
+     }
+   }
