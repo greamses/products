@@ -1,7 +1,7 @@
-# FashionHub - Modern E-Commerce App
+# Menyz - Modern E-Commerce App
 
 ## Overview
-FashionHub is a responsive e-commerce web application built with vanilla JavaScript that provides a seamless shopping experience for fashion apparel. The app features product browsing, cart management, and checkout functionality with a clean, intuitive interface.
+Menyz is a responsive e-commerce web application built with vanilla JavaScript that provides a seamless shopping experience for fashion apparel. The app features product browsing, cart management, and checkout functionality with a clean, intuitive interface.
 
 ## Key Features
 
